@@ -53,7 +53,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-104.19758694952962,-219.55021138052476],[148.49245564512734,157.14801487957422]]);
+        }).fitBounds([[-125.07333646104875,-184.6534360776868],[127.61670613360822,192.04479018241219]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -73,19 +73,19 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_ESRIGraylight_0');
-        map.getPane('pane_ESRIGraylight_0').style.zIndex = 400;
-        var layer_ESRIGraylight_0 = L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-            pane: 'pane_ESRIGraylight_0',
+        map.createPane('pane_GoogleSatellite_0');
+        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
+        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_0',
             opacity: 1.0,
-            attribution: '',
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
             minZoom: 1,
             maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
-        layer_ESRIGraylight_0;
-        map.addLayer(layer_ESRIGraylight_0);
+        layer_GoogleSatellite_0;
+        map.addLayer(layer_GoogleSatellite_0);
         function pop_ne_10m_airports_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -199,7 +199,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'ne_10m_airports<br /><table><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_MajorAiport0.png" /></td><td>Major Aiport</td></tr><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_MidAiport1.png" /></td><td>Mid Aiport</td></tr><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_SmallAiport2.png" /></td><td>Small Aiport</td></tr></table>': layer_ne_10m_airports_1,"ESRI Gray (light)": layer_ESRIGraylight_0,}).addTo(map);
+        L.control.layers(baseMaps,{'ne_10m_airports<br /><table><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_MajorAiport0.png" /></td><td>Major Aiport</td></tr><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_MidAiport1.png" /></td><td>Mid Aiport</td></tr><tr><td style="text-align: center;"><img src="legend/ne_10m_airports_1_SmallAiport2.png" /></td><td>Small Aiport</td></tr></table>': layer_ne_10m_airports_1,"Google Satellite": layer_GoogleSatellite_0,}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_ne_10m_airports_1,
